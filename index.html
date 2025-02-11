@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffccd5;
+            font-family: 'Arial', sans-serif;
+            overflow-y: scroll; /* Enable vertical scrolling */
+            height: 100vh;
+            padding-bottom: 50px; /* Add space at the bottom for scrolling */
+        }
+        h1 {
+            font-size: 3em;
+            color: #d63384;
+            margin-top: 50px;
+        }
+        #message {
+            font-size: 1.5em;
+            color: #6a0572;
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            display: none; /* Ensure the images are hidden initially */
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .image-container img {
+            width: 300px;
+            border-radius: 15px;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #e91e63;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: float 5s linear infinite;
+        }
+        @keyframes float {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day, Mahal ❤️</h1>
+    <button onclick="revealMessage()">Pindutin mo po</button>
+    <div id="message">You are the most special person in my life. I love you forever! 💕</div>
+
+    <div class="image-container" id="image-container">
+        <img src="image.jpg" alt="Lovely Surprise Image 1">
+        <img src="image.jpg" alt="Lovely Surprise Image 2">
+        <img src="image.jpg" alt="Lovely Surprise Image 3">
+        <!-- Add more images as needed -->
+    </div>
+
+    <script>
+        function revealMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('image-container').style.display = 'flex'; // Show the images
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
